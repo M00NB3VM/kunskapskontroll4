@@ -71,7 +71,7 @@ function AdminPage() {
               const cartItem = products.find((y) => y.id === i.productId);
               return (
                 <li key={i.productId} className={styles.cartLi}>
-                  {cartItem.id}
+                  {cartItem.title}
                 </li>
               );
             })}
