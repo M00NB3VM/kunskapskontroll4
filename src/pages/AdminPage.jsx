@@ -1,45 +1,49 @@
 import styles from "./adminPage.module.css";
 import { useRecoilState, useRecoilValue } from "recoil";
 import { productsState } from "../recoil/products/atom";
+import { productState } from "../recoil/singleProduct/atom";
 import { userListState } from "../recoil/userList/atom";
 import { roleState } from "../recoil/role/atom";
 import axios from "axios";
 import { useEffect } from "react";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 function AdminPage() {
+  const navigate = useNavigate();
+  const [product, setProduct] = useRecoilState(productState);
   const [products, setProducts] = useRecoilState(productsState);
   const [users, setUsers] = useRecoilState(userListState);
   const [userCarts, setUserCarts] = useState([]);
   const role = useRecoilValue(roleState);
 
   /* AXIOS */
-  async function getUsers() {
-    const result = await axios.get("https://k4backend.osuka.dev/users");
-    setUsers(result.data);
-  }
-
   useEffect(() => {
     getUsers();
   }, []);
 
-  async function getUserCarts() {
-    const result = await axios.get("https://k4backend.osuka.dev/carts");
-    setUserCarts(result.data);
-  }
+  useEffect(() => {
+    getProducts();
+  }, []);
 
   useEffect(() => {
     getUserCarts();
   }, []);
+
+  async function getUsers() {
+    const result = await axios.get("https://k4backend.osuka.dev/users");
+    setUsers(result.data);
+  }
 
   async function getProducts() {
     const res = await axios.get("https://k4backend.osuka.dev/products");
     setProducts(res.data);
   }
 
-  useEffect(() => {
-    getProducts();
-  }, []);
+  async function getUserCarts() {
+    const result = await axios.get("https://k4backend.osuka.dev/carts");
+    setUserCarts(result.data);
+  }
 
   /* USERS */
 
@@ -55,9 +59,9 @@ function AdminPage() {
   });
 
   /* CARTS */
-
   const userCart = userCarts.map((cart) => {
     const user = users.find((x) => x.id === cart.userId);
+
     return (
       <tr key={cart.id}>
         <td className={styles.cell}>{cart.id}</td>
@@ -102,6 +106,11 @@ function AdminPage() {
     setProducts(newProducts);
   }
 
+  function updateProduct(item) {
+    setProduct(item);
+    navigate("/updateproduct");
+  }
+
   const productGrid = products.map((product) => {
     return (
       <tr key={product.id}>
@@ -115,7 +124,14 @@ function AdminPage() {
         </td>
         <td>
           <div className={styles.buttons}>
-            <p>Update</p>
+            <button
+              className={styles.updateButton}
+              onClick={() => {
+                updateProduct(product);
+              }}
+            >
+              Update
+            </button>
 
             <button
               className={styles.deleteButton}
@@ -131,7 +147,7 @@ function AdminPage() {
 
   return (
     <div>
-      {role !== "admin" ? (
+      {role !== "admin" || role === "" ? (
         <div className={styles.accessMessage}>
           <p>You do not have access to this page.</p>
         </div>
@@ -144,7 +160,7 @@ function AdminPage() {
           <div>
             <h2 className={styles.adminH2}>Users</h2>
             <ul className={styles.list}>
-              <li>
+              <li key={userGrid}>
                 <table className={styles.table}>
                   <thead className={styles.thead}>
                     <tr>
@@ -162,7 +178,7 @@ function AdminPage() {
           <div>
             <h2 className={styles.adminH2}>User carts</h2>
             <ul className={styles.list}>
-              <li>
+              <li key={userCarts}>
                 <table className={styles.table}>
                   <thead className={styles.thead}>
                     <tr>
@@ -183,7 +199,7 @@ function AdminPage() {
           <div>
             <h2 className={styles.adminH2}>Products</h2>
             <ul className={styles.list}>
-              <li>
+              <li key={products}>
                 <table className={styles.table}>
                   <thead className={styles.thead}>
                     <tr>
@@ -208,5 +224,3 @@ function AdminPage() {
 }
 
 export default AdminPage;
-
-/*<Link to="/updateproduct">Update</Link>  */

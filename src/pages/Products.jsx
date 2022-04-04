@@ -15,7 +15,7 @@ function Products() {
 
   useEffect(() => {
     getProducts();
-  }, [products]);
+  }, []);
 
   const productGrid = products.map((product) => {
     return (
