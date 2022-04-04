@@ -1,0 +1,73 @@
+.accessMessage {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.adminIntro {
+  display: flex;
+  align-items: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.adminH2 {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.list {
+  list-style-type: none;
+  padding: 0;
+}
+
+.table {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  border-collapse: collapse;
+}
+
+.thead {
+  border-bottom: 1px solid black;
+}
+
+.cell {
+  padding: 10px;
+}
+
+.productImage {
+  width: 50px;
+  height: auto;
+}
+
+.buttons {
+  display: flex;
+  padding: 10px;
+}
+
+.updateButton {
+  font-family: "Nunito", sans-serif;
+  background-color: #ff008a;
+  border: 1px solid black;
+  padding: 5px 10px;
+  margin-left: auto;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.deleteButton {
+  font-family: "Nunito", sans-serif;
+  background-color: transparent;
+  border: 1px solid #ff008a;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.cartLi {
+  list-style-type: none;
+}

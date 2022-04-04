@@ -1,0 +1,40 @@
+.productGrid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.product {
+  width: 40%;
+  margin: 10px;
+  text-decoration: none;
+}
+
+.product:visited {
+  color: black;
+}
+
+.productName {
+  color: black;
+  font-size: 1rem;
+  margin: 2px;
+}
+
+.productPrice {
+  color: black;
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin: 2px;
+}
+
+/* Media Queries */
+
+@media screen and (min-width: 700px) {
+  .product {
+    width: 20%;
+  }
+}

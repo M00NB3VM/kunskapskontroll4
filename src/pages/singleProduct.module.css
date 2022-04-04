@@ -1,0 +1,35 @@
+.singleProduct {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  display: flex;
+  flex-direction: column;
+}
+
+.productImage {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.addButton {
+  display: inline-block;
+  text-align: center;
+}
+
+.addToCartButton {
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: 1px solid #ff008a;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+/* Media queries*/
+
+@media screen and (min-width: 700px) {
+  .productImage {
+    width: 30%;
+  }
+}

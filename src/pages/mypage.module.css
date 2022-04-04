@@ -1,0 +1,22 @@
+.mypageInfo {
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+  margin-bottom: 50px;
+}
+
+.updateInfoLink {
+  font-family: "Nunito", sans-serif;
+  color: black;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+.updateP {
+  display: inline-block;
+  padding: 5px 10px;
+  margin-top: 50px;
+  border: 1px solid #ff008a;
+  cursor: pointer;
+}

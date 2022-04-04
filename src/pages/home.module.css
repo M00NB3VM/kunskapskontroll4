@@ -1,0 +1,40 @@
+.homeIntro {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  width: 90%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homeImage {
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.homeTextTitle {
+  font-family: "Croissant One", cursive;
+}
+
+.homeText {
+  width: 90%;
+}
+
+/* Media queries*/
+
+@media screen and (min-width: 700px) {
+  .homeIntro {
+    flex-direction: row;
+    margin-top: 40px;
+  }
+
+  .homeImage {
+    width: 40%;
+  }
+
+  .homeText {
+    width: 40%;
+    padding-top: 80px;
+  }
+}

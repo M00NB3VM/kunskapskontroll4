@@ -1,0 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Croissant+One&family=Nunito:wght@400;700&display=swap");
+
+/*Fonts
+font-family: 'Croissant One', cursive;
+font-family: 'Nunito', sans-serif;
+*/
+
+body {
+  font-family: "Nunito", sans-serif;
+  max-width: 100%;
+}
+
+img {
+  max-width: 100%;
+}

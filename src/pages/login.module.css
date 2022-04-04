@@ -1,0 +1,41 @@
+.form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 50px;
+}
+
+.input {
+  margin-bottom: 20px;
+}
+
+.loginButton {
+  display: inline-block;
+  width: auto;
+  align-self: center;
+  font-family: "Nunito", sans-serif;
+  font-size: 1rem;
+  padding: 10px 20px;
+  border: 1px solid #ff008a;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.register {
+  text-align: center;
+  margin: 20px;
+}
+
+.registerLink {
+  font-family: "Nunito", sans-serif;
+  color: #ff008a;
+}
+
+.error {
+  color: red;
+  margin: 0;
+  padding: 0;
+}
