@@ -24,16 +24,11 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />}></Route>
         <Route path="/products" element={<Products />}></Route>
-        <Route exact path="/products/:id" element={<SingleProduct />}></Route>
-        <Route exact path="/products/women" element={<CategoryWomen />}></Route>
-        <Route exact path="/products/men" element={<CategoryMen />}></Route>
+        <Route path="/products/:id" element={<SingleProduct />}></Route>
+        <Route path="/products/women" element={<CategoryWomen />}></Route>
+        <Route path="/products/men" element={<CategoryMen />}></Route>
+        <Route path="/products/jewelery" element={<CategoryJewelery />}></Route>
         <Route
-          exact
-          path="/products/jewelery"
-          element={<CategoryJewelery />}
-        ></Route>
-        <Route
-          exact
           path="/products/electronics"
           element={<CategoryElectronics />}
         ></Route>

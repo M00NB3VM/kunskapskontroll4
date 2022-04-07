@@ -19,15 +19,7 @@ function AdminPage() {
 
   /* AXIOS */
   useEffect(() => {
-    getUsers();
-  }, []);
-
-  useEffect(() => {
-    getProducts();
-  }, []);
-
-  useEffect(() => {
-    getUserCarts();
+    getUsers(), getProducts(), getUserCarts();
   }, []);
 
   async function getUsers() {
@@ -45,6 +37,10 @@ function AdminPage() {
     setUserCarts(result.data);
   }
 
+  if (users.length < 1 || userCarts.length < 1 || products.length < 1) {
+    return <div>Loading</div>;
+  }
+
   /* USERS */
 
   const userGrid = users.map((user) => {
@@ -59,6 +55,7 @@ function AdminPage() {
   });
 
   /* CARTS */
+
   const userCart = userCarts.map((cart) => {
     const user = users.find((x) => x.id === cart.userId);
 
@@ -75,7 +72,7 @@ function AdminPage() {
               const cartItem = products.find((y) => y.id === i.productId);
               return (
                 <li key={i.productId} className={styles.cartLi}>
-                  {cartItem.title}
+                  {cartItem ? cartItem.title : "Not found"}
                 </li>
               );
             })}
@@ -98,7 +95,8 @@ function AdminPage() {
       .then((res) => {
         console.log(res);
         removeProduct(res.data.id);
-      });
+      })
+      .catch((err) => console.log(err));
   }
 
   function removeProduct(product) {
